@@ -128,7 +128,7 @@ class GridWorld(tk.Tk):
         self.number_decisions  += 1
 
         if direction == "giveup":
-            #messagebox.showinfo("Not today", "Bill gave up!")
+            messagebox.showinfo("Not today", "Bill gave up!")
             self.quit()        
             return  
         elif direction == "up" and up is not None:
@@ -140,16 +140,16 @@ class GridWorld(tk.Tk):
         elif direction == "right" and right is not None:
             self.bill_j += 1
         else:
-            #messagebox.showinfo("Error", "Invalid direction returned by decision_callback")
+            messagebox.showinfo("Error", "Invalid direction returned by decision_callback")
             self.quit()
             return
 
         if self.bill_i == self.treasure_i and self.bill_j == self.treasure_j:
-            #messagebox.showinfo("Congratulations", "Bill found the treasure!")
+            messagebox.showinfo("Congratulations", "Bill found the treasure!")
             self.found_treasure = True
             self.quit()
         elif self.number_decisions >= self.max_decisions:
-            #messagebox.showinfo("Time's up", "Maximum number of decisiosn reached, sorry!")
+            messagebox.showinfo("Time's up", "Maximum number of decisiosn reached, sorry!")
             self.quit()
         else:
             self.canvas.delete("all")
@@ -165,10 +165,30 @@ class GridWorld(tk.Tk):
 def example_callback(up, down, left, right):
     directions = ["up", "down", "left", "right"]
     distances = [up, down, left, right]
+    valid_direction = []
 
-    # Resolucao sem memoria
+    for index, dis in enumerate(distances):
+        if dis is not None: valid_direction.append(str(directions[index]))
+    
+    if len(valid_direction) == 0:
+         move = "giveup"
+    else:
+        rand = random.randint(0,len(valid_direction)-1)
+        move = valid_direction[rand]
+        for index,dis in enumerate(distances):
+            if dis == 0.00: 
+                move = directions[index]
+                print('Cheque-Mate')
 
-    return random.choice(directions)
+    return move
+'''
+Probelmas do estado atual do codigo:
+    Movimento completamente aleatorio, poder de decisao controlado somente no caso de 'Cheque-mate'
+    Bill nao se choca com as paredes ocasionando o fim do jogo
+
+    - Estudar formas de movimentacao em labirinto
+    - Criar diferentes branchs para cada algoritmo implementado
+'''
 
         
 app = GridWorld(N, M, L, grid, example_callback)
