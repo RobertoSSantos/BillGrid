@@ -166,6 +166,8 @@ def example_callback(up, down, left, right):
     directions = ["up", "down", "left", "right"]
     distances = [up, down, left, right]
 
+    # Resolucao sem memoria
+
     return random.choice(directions)
 
         
