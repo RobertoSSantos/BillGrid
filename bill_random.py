@@ -1,3 +1,6 @@
+'''
+Versao original do codigo proposta em sala pelo professor
+'''
 import random
 import math
 import tkinter as tk
