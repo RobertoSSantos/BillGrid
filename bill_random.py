@@ -156,7 +156,7 @@ class GridWorld(tk.Tk):
             self.draw_grid()
             self.draw_bill()
             self.draw_treasure()
-            self.after(500, self.make_decision)
+            self.after(5, self.make_decision)
 
 # You return one of these: up, down, left, right or giveup
 # As parameters you receive the euclidean distance
@@ -198,8 +198,8 @@ app = GridWorld(N, M, L, grid, example_callback)
 #app.bind("<Down>", lambda event: app.move_bill("down"))
 app.mainloop()
 
-cost_decision = -1     # Recompensa a cada rodada
-reward_treasure = 1000 # Recompensa se achar o tesouro
+cost_decision = 1     # Recompensa a cada rodada
+reward_treasure = 0 # Recompensa se achar o tesouro
 reward_no_treasure = 0 # Recompensa se não achar
 
 score = cost_decision * app.number_decisions 
