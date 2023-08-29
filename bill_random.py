@@ -2,6 +2,7 @@ import random
 import math
 import tkinter as tk
 from tkinter import messagebox
+from playsound import playsound
 
 
 N = 10
@@ -145,6 +146,7 @@ class GridWorld(tk.Tk):
             return
 
         if self.bill_i == self.treasure_i and self.bill_j == self.treasure_j:
+            playsound('bahia.mp3',True)
             messagebox.showinfo("Congratulations", "Bill found the treasure!")
             self.found_treasure = True
             self.quit()
