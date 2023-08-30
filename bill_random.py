@@ -146,7 +146,7 @@ class GridWorld(tk.Tk):
             return
 
         if self.bill_i == self.treasure_i and self.bill_j == self.treasure_j:
-            playsound('bahia.mp3',True)
+            #playsound('bahia.mp3',True)
             messagebox.showinfo("Congratulations", "Bill found the treasure!")
             self.found_treasure = True
             self.quit()
