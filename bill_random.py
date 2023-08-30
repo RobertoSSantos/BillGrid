@@ -183,14 +183,6 @@ def example_callback(up, down, left, right):
                 print('Cheque-Mate')
 
     return move
-'''
-Probelmas do estado atual do codigo:
-    Movimento completamente aleatorio, poder de decisao controlado somente no caso de 'Cheque-mate'
-    Bill nao se choca com as paredes ocasionando o fim do jogo
-
-    - Estudar formas de movimentacao em labirinto
-    - Criar diferentes branchs para cada algoritmo implementado
-'''
 
         
 app = GridWorld(N, M, L, grid, example_callback)
