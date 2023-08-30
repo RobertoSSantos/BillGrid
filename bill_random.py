@@ -193,7 +193,7 @@ app = GridWorld(N, M, L, grid, example_callback)
 app.mainloop()
 
 cost_decision = 1     # Recompensa a cada rodada
-reward_treasure = 0 # Recompensa se achar o tesouro
+reward_treasure = -500 # Recompensa se achar o tesouro
 reward_no_treasure = 0 # Recompensa se não achar
 
 score = cost_decision * app.number_decisions 
